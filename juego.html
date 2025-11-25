@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera vs Robot</title>
+    <link rel="stylesheet" href="juego.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Piedra, Papel o Tijera 🎮</h1>
+            <p class="subtitle">Desafía al Robot</p>
+        </header>
+
+        <div class="difficulty-section">
+            <label class="difficulty-label">Selecciona el Nivel de Dificultad:</label>
+            <div class="difficulty-buttons">
+                <button class="btn-difficulty active" onclick="setDifficulty('easy')">🟢 Fácil</button>
+                <button class="btn-difficulty" onclick="setDifficulty('medium')">🟡 Normal</button>
+                <button class="btn-difficulty" onclick="setDifficulty('hard')">🔴 Difícil</button>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="player-section">
+                <div class="section-title">👤 Tú</div>
+                <div class="character-display">😊</div>
+                <div class="choice-display" id="playerChoice">Esperando...</div>
+            </div>
+
+            <div class="robot-section">
+                <div class="section-title">🤖 Robot</div>
+                <div class="character-display">🤖</div>
+                <div class="choice-display" id="robotChoice">Esperando...</div>
+            </div>
+        </div>
+
+        <div class="options">
+            <button class="btn-choice" onclick="playGame('piedra')">🪨 Piedra</button>
+            <button class="btn-choice" onclick="playGame('papel')">📄 Papel</button>
+            <button class="btn-choice" onclick="playGame('tijera')">✂️ Tijera</button>
+        </div>
+
+        <div class="result-display" id="resultDisplay">Elige una opción para comenzar</div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Victorias</div>
+                <div class="stat-value" id="winCount">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Empates</div>
+                <div class="stat-value" id="drawCount">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Derrotas</div>
+                <div class="stat-value" id="loseCount">0</div>
+            </div>
+        </div>
+
+        <div class="victory-indicator" id="victoryIndicator">
+            <div class="victory-text">Gana 5 victorias para ser campeón:</div>
+            <div class="victory-progress">
+                <span class="victory-star" id="star1">⭐</span>
+                <span class="victory-star" id="star2">⭐</span>
+                <span class="victory-star" id="star3">⭐</span>
+                <span class="victory-star" id="star4">⭐</span>
+                <span class="victory-star" id="star5">⭐</span>
+            </div>
+        </div>
+
+        <button class="btn-reset" onclick="resetGame()">🔄 Reiniciar Juego</button>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">🏆</div>
+            <div class="modal-title" id="modalTitle">¡Victoria!</div>
+            <div class="modal-message" id="modalMessage">Mensaje del juego</div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-continue" onclick="closeModal()">Continuar Jugando</button>
+                <button class="modal-btn modal-btn-reset" onclick="resetGameFromModal()">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="juego.js"></script>
+</html>
